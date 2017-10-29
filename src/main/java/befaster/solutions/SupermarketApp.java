@@ -16,8 +16,29 @@ public class SupermarketApp {
 		put('C', new SKU('C', 20, null, 						-1, null));
 		put('D', new SKU('D', 15, null,							-1, null));
 		put('E', new SKU('E', 40, null,							 2, 'B'));
-		// HACK - buying two Fs => get one free is the same as applying a 2xF discount on 3Fs
+		// HACK - buying two Fs => get one free is the same as applying a 2xF discount on 3 Fs
 		put('F', new SKU('F', 10, asList(new Discount(3, 20)),  -1, null));
+		put('G', new SKU('G', 20, null,							-1, null));
+		put('H', new SKU('H', 10, asList(new Discount(10, 80), new Discount(5, 45)), -1, null));
+		put('I', new SKU('I', 35, null,							-1, null));
+		put('J', new SKU('J', 60, null,							-1, null));
+		put('K', new SKU('K', 80, asList(new Discount(2, 150)), -1, null));
+		put('L', new SKU('L', 90, null,							-1, null));
+		put('M', new SKU('M', 15, null,							-1, null));
+		put('N', new SKU('N', 40, null,							 3, 'M'));
+		put('O', new SKU('O', 10, null,							-1, null));
+		put('P', new SKU('P', 50, asList(new Discount(5, 200)), -1, null));
+		put('Q', new SKU('Q', 30, asList(new Discount(3, 80)),  -1, null));
+		put('R', new SKU('R', 50, null, 						 3, 'Q'));
+		put('S', new SKU('S', 30, null,							-1, null));
+		put('T', new SKU('S', 20, null,							-1, null));
+		// HACK - buying three Us => get one free is the same as applying a 3xU discount on 4 Us
+		put('U', new SKU('U', 40, asList(new Discount(4, 120)),  -1, null));
+		put('V', new SKU('V', 50, asList(new Discount(3, 130), new Discount(2, 90)), -1, null));
+		put('W', new SKU('W', 20, null,							-1, null));
+		put('X', new SKU('X', 90, null,							-1, null));
+		put('Y', new SKU('Y', 10, null,							-1, null));
+		put('Z', new SKU('Z', 50, null,							-1, null));
 	}};
 	
 	public static int checkout(String s) {
@@ -60,3 +81,4 @@ public class SupermarketApp {
 		return total;
 	}
 }
+
