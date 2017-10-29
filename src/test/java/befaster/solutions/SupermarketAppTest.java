@@ -18,7 +18,7 @@ public class SupermarketAppTest {
 	}
 	
 	@Test
-	public void givenOneMultipleLessThanDiscount_shouldMultiplySinglePrice() {
+	public void givenMultipleLessThanDiscount_shouldMultiplySinglePrice() {
 		assertThat(SupermarketApp.checkout("AA"), is(100));
 	}
 	
@@ -34,7 +34,7 @@ public class SupermarketAppTest {
 	
 	// Freebies
 	@Test
-	public void givenTwoEs_shouldGetAFeeB() {
+	public void givenTwoEs_shouldGetAFreeB() {
 		assertThat(SupermarketApp.checkout("EEB"), is(80));
 	}
 	
@@ -72,5 +72,31 @@ public class SupermarketAppTest {
 	@Test
 	public void  given3Fs_shouldChargePriceOf2s() {
 		assertThat(SupermarketApp.checkout("FFF"), is(20));
+	}
+	
+	// 3 out of 5
+	@Test
+	public void given3Of_STXYZ_shouldCharge45() {
+		assertThat(SupermarketApp.checkout("XYZ"), is(45));
+	}
+	
+	@Test
+	public void given6Of_STXYZ_shouldCharge90() {
+		assertThat(SupermarketApp.checkout("XYZSTZ"), is(90));
+	}
+	
+	@Test
+	public void SSSZ() {
+		assertThat(SupermarketApp.checkout("SSSZ"), is(65));
+	}
+	
+	@Test
+	public void ZZZS() {
+		assertThat(SupermarketApp.checkout("ZZZS"), is(65));
+	}
+	
+	@Test
+	public void STXZ() {
+		assertThat(SupermarketApp.checkout("STXZ"), is(62));
 	}
 }
