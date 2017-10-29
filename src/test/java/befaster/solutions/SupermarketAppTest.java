@@ -27,14 +27,25 @@ public class SupermarketAppTest {
 		assertThat(SupermarketApp.checkout("AABCCC"), is(190));
 	}
 	
-//	@Test
-//	public void givenLowerCaseId_stillCalculatesValueOPfItem() {
-//		assertThat(SupermarketApp.checkout("aA"), is(100));
-//	}
+	@Test
+	public void given5As_shouldGetDiscountFor5As() {
+		assertThat(SupermarketApp.checkout("AAAAA"), is(200));
+	}
+	
+	// Freebies
+	@Test
+	public void givenTwoEs_shouldGetAFeeB() {
+		assertThat(SupermarketApp.checkout("EEB"), is(80));
+	}
+	
+	@Test
+	public void givenTwoEsAndTwoBs_shouldGetOneBFreeAndPayForTheOther() {
+		assertThat(SupermarketApp.checkout("EEBB"), is(110));
+	}
 	
 	@Test
 	public void givenInvalidInput_shouldReturnMinus1() {
-		assertThat(SupermarketApp.checkout("AAAABCDE"), is(-1));
+		assertThat(SupermarketApp.checkout("AAAABCD-"), is(-1));
 	}
 	
 	@Test
@@ -44,6 +55,16 @@ public class SupermarketAppTest {
 	
 	@Test
 	public void givenComplexBasketWithDiscounts_shouldReturnRightAmount() {
-		assertThat(SupermarketApp.checkout("AAAAABBBBCCCDD"), is(410));
+		assertThat(SupermarketApp.checkout("AAABBBBCCCDD"), is(310));
+	}
+	
+	@Test
+	public void givenEEEEBB_shouldReturnCorrectTotalApplyingTwoFreebies() {
+		assertThat(SupermarketApp.checkout("EEEEBB"), is(160));
+	}
+	
+	@Test
+	public void givenBEBEEE_shouldReturnCorrectTotalApplyingTwoFreebies() {
+		assertThat(SupermarketApp.checkout("BEBEEE"), is(160));
 	}
 }
