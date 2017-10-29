@@ -16,6 +16,8 @@ public class SupermarketApp {
 		put('C', new SKU('C', 20, null, 						-1, null));
 		put('D', new SKU('D', 15, null,							-1, null));
 		put('E', new SKU('E', 40, null,							 2, 'B'));
+		// HACK - buying two Fs => get one free is the same as applying a 2xF discount on 3Fs
+		put('F', new SKU('F', 10, asList(new Discount(3, 20)),  -1, null));
 	}};
 	
 	public static int checkout(String s) {

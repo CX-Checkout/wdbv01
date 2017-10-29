@@ -67,4 +67,10 @@ public class SupermarketAppTest {
 	public void givenBEBEEE_shouldReturnCorrectTotalApplyingTwoFreebies() {
 		assertThat(SupermarketApp.checkout("BEBEEE"), is(160));
 	}
+	
+	// Fs
+	@Test
+	public void  given3Fs_shouldChargePriceOf2s() {
+		assertThat(SupermarketApp.checkout("FFF"), is(20));
+	}
 }
